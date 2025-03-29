@@ -1,0 +1,77 @@
+#include <iostream>
+#include <windows.h> // For Sleep() and SetConsoleTextAttribute()
+using namespace std;
+
+// Function to change console text color
+void setColor(int color) {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+}
+
+// Function to display the Netflix "N" intro
+void netflixIntro() {
+    string frames[] = {
+        "  ████      ████  \n"
+        "  ████      ████  \n"
+        "  ████      ████  \n"
+        "  ████      ████  \n"
+        "  ██████████████  \n"
+        "  ████      ████  \n"
+        "  ████      ████  \n"
+        "  ████      ████  \n"
+        "  ████      ████  \n",
+
+        "  ████      ████  \n"
+        "  ████ █    ████  \n"
+        "  ████ ██   ████  \n"
+        "  ████  ██  ████  \n"
+        "  ██████████████  \n"
+        "  ████  ██  ████  \n"
+        "  ████   ██ ████  \n"
+        "  ████    ██████  \n"
+        "  ████      ████  \n",
+
+        "  ████      ████  \n"
+        "  ████ ██   ████  \n"
+        "  ████ ███  ████  \n"
+        "  ████  ███ ████  \n"
+        "  ██████████████  \n"
+        "  ████  ███ ████  \n"
+        "  ████ ███  ████  \n"
+        "  ████ ██   ████  \n"
+        "  ████      ████  \n"
+    };
+
+    for (int i = 0; i < 3; i++) {
+        system("cls"); // Clear screen
+        setColor(12 + i); // Change color dynamically
+        cout << frames[i] << endl;
+        Sleep(500); // Delay for smooth animation
+    }
+
+    Sleep(1000);
+    system("cls");
+
+    // Final Netflix "N"
+    setColor(12); // Red color
+    cout << "  ████      ████  \n"
+            "  ████ ██   ████  \n"
+            "  ████ ███  ████  \n"
+            "  ████  ███ ████  \n"
+            "  ██████████████  \n"
+            "  ████  ███ ████  \n"
+            "  ████ ███  ████  \n"
+            "  ████ ██   ████  \n"
+            "  ████      ████  \n";
+
+    Sleep(2000);
+    system("cls");
+
+    setColor(15); // Reset to default color
+    cout << "NETFLIX" << endl;
+}
+
+// Main function
+int main() {
+    netflixIntro();
+    return 0;
+}
